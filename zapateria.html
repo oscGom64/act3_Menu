@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Actividad 3 | Zapatería</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#">
+				<img class="logo" src="mainLogo.png" alt="logo">
+			</a>
+			<ul class="enlaces-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="seccionNum.html">Números</a></li>
+				<li><a href="seccionReg.html">Registros</a></li>
+				<li><a href="seccionCred.html">Créditos</a></li>
+			</ul>
+			<button class="ham" type="button">
+				<span class="br-1"></span>
+				<span class="br-2"></span>
+				<span class="br-3"></span>
+			</button>
+		</nav>
+	</header>
+	<div class="contenido">
+		<h1>Zapatería</h1>
+		<p>Ingrese la cantidad a pagar por los zapatos.</p>
+		<p>Si se cuenta con membresía, se le aplicará descuento.</p>
+		<form>
+			<p>Cantidad: </p><input id="cant" type="text" name="cantidad">
+			<br>
+			<p>Membresía: </p>
+			<input id="membNA" type="button" name="confirm" value="Sin Membresía" onclick="resultMembresia_NA()">
+			<input id="memb1" type="button" name="confirm" value="Tipo 105" onclick="resultMembresia_1()">
+			<input id="memb2" type="button" name="confirm" value="Tipo 206" onclick="resultMembresia_2()">
+			<input id="memb3" type="button" name="confirm" value="Tipo 307" onclick="resultMembresia_3()">
+			<p>El total a pagar es de: $<b><span id=resultado></span></b></p>
+			<p><span id="info"></span></p>
+		</form>
+	</div>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		function resultMembresia_NA(){
+			var num1 = Number(document.getElementById("cant").value);
+			let spanInfo = document.getElementById("info");
+
+			document.getElementById("resultado").innerHTML = num1;
+			spanInfo.innerHTML = "No se aplicó descuento.";
+
+		}
+
+		function resultMembresia_1(){
+			var num1 = Number(document.getElementById("cant").value);
+			var desc = 0;
+			var total = 0;
+			let spanInfo = document.getElementById("info");
+
+			desc = num1 * 0.13
+			total = num1 - desc
+
+			document.getElementById("resultado").innerHTML = total;
+			spanInfo.innerHTML = "Se aplicó un descuento del 13%";
+
+		}
+
+		function resultMembresia_2(){
+			var num1 = Number(document.getElementById("cant").value);
+			var desc = 0;
+			var total = 0;
+			let spanInfo = document.getElementById("info");
+
+			desc = num1 * 0.22
+			total = num1 - desc
+
+			document.getElementById("resultado").innerHTML = total;
+			spanInfo.innerHTML = "Se aplicó un descuento del 22%";
+
+		}
+
+		function resultMembresia_3(){
+			var num1 = Number(document.getElementById("cant").value);
+			var desc = 0;
+			var total = 0;
+			let spanInfo = document.getElementById("info");
+
+			desc = num1 * 0.28
+			total = num1 - desc
+
+			document.getElementById("resultado").innerHTML = total;
+			spanInfo.innerHTML = "Se aplicó un descuento del 28%";
+
+		}
+
+	</script>
+</body>
+</html>

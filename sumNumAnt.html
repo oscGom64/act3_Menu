@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Actividad 3 | Suma de Números Anteriores</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#">
+				<img class="logo" src="mainLogo.png" alt="logo">
+			</a>
+			<ul class="enlaces-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="seccionNum.html">Números</a></li>
+				<li><a href="seccionReg.html">Registros</a></li>
+				<li><a href="seccionCred.html">Créditos</a></li>
+			</ul>
+			<button class="ham" type="button">
+				<span class="br-1"></span>
+				<span class="br-2"></span>
+				<span class="br-3"></span>
+			</button>
+		</nav>
+	</header>
+	<div class="contenido">
+		<h1>Suma de Números Anteriores</h1>
+		<p>Ingrese un número para sumar todos los números anteriores al ingresado.</p>
+		<form>
+			<p>Número: </p><input id="num" type="text" name="numero">
+			<br><br>
+			<input id="botonConfirmar" type="button" name="confirm" value="Confirmar" onclick="obtenerResultado()">
+			<p><b><span id=resultado></span></b></p>
+			<p><b><span id=info></span></b></p>
+		</form>
+	</div>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		function obtenerResultado(){
+			var num1 = Number(document.getElementById("num").value);
+			var valor = 0;
+			var numSumados = 0;
+			let spanResult = document.getElementById("resultado");
+			let spanInfo = document.getElementById("info");
+
+			for (var i = 0; i < num1; i++) {
+				valor += Number(i);
+				numSumados = Number(i);
+			}
+
+			spanResult.innerHTML = "La suma total es: " + valor;
+			spanInfo.innerHTML = "Se ha sumado un total de " + numSumados + " número(s).";
+		}
+
+	</script>
+</body>
+</html>

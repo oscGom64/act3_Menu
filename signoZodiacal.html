@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Actividad 3 | Signo Zodiacal</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body onload="opcionesDias()">
+	<header>
+		<nav>
+			<a href="#">
+				<img class="logo" src="mainLogo.png" alt="logo">
+			</a>
+			<ul class="enlaces-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="seccionNum.html">Números</a></li>
+				<li><a href="seccionReg.html">Registros</a></li>
+				<li><a href="seccionCred.html">Créditos</a></li>
+			</ul>
+			<button class="ham" type="button">
+				<span class="br-1"></span>
+				<span class="br-2"></span>
+				<span class="br-3"></span>
+			</button>
+		</nav>
+	</header>
+	<div class="contenido">
+		<h1>Signo Zodiacal</h1>
+		<p>Ingrese el día y mes de nacimiento para conocer tu signo zodiacal.</p>
+		<form>
+			<p>
+				Día: <select id="numDia">
+					<option>--Día--</option>
+				</select>
+				Mes: <select id="numMes">
+					<option value="0">--Mes--</option>
+					<option value="1">Enero</option>
+					<option value="2">Febrero</option>
+					<option value="3">Marzo</option>
+					<option value="4">Abril</option>
+					<option value="5">Mayo</option>
+					<option value="6">Junio</option>
+					<option value="7">Julio</option>
+					<option value="8">Agosto</option>
+					<option value="9">Septiembre</option>
+					<option value="10">Octubre</option>
+					<option value="11">Noviembre</option>
+					<option value="12">Diciembre</option>
+				</select>
+			</p>
+			<input id="botonConfirmar" type="button" name="confirm" value="Confirmar" onclick="obtenerResultado()">
+			<p>Tu Signo Zodiacal es:</p>
+			<p><b><span id=resultado></span></b></p>
+		</form>
+	</div>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+
+		function opcionesDias() {
+			var min = 1,
+				max = 31,
+				select = document.getElementById("numDia");
+
+			for (var i = min; i <= max; i++) {
+				var opt = document.createElement("option");
+				opt.value = i;
+				opt.innerHTML = i;
+				select.appendChild(opt);
+			}
+		}
+
+		function obtenerResultado() {
+			var datoDia = document.getElementById("numDia"),
+				resultDia = datoDia.selectedIndex;
+				datoMes = document.getElementById("numMes"),
+				resultMes = datoMes.options[datoMes.selectedIndex].text;
+			let spanResult = document.getElementById("resultado");
+
+			if (resultMes == "Enero") {
+				if (resultDia >= 21) {
+					spanResult.innerHTML = "Acuario (21 de enero-18 de febrero)"
+				}
+
+				else {
+					spanResult.innerHTML = "Capricornio (22 de diciembre-20 de enero)"
+				}
+			}
+
+			else if (resultMes == "Febrero") {
+				if (resultDia >= 19) {
+					spanResult.innerHTML = "Piscis (19 de febrero-20 de marzo)"
+				}
+
+				else {
+					spanResult.innerHTML = "Acuario (21 de enero-18 de febrero)"
+				}
+			}
+
+			else if (resultMes == "Marzo") {
+				if (resultDia >= 21) {
+					spanResult.innerHTML = "Aries (21 de marzo-20 de abril)"
+				}
+
+				else {
+					spanResult.innerHTML = "Piscis (19 de febrero-20 de marzo)"
+				}
+			}
+
+			else if (resultMes == "Abril") {
+				if (resultDia >= 21) {
+					spanResult.innerHTML = "Tauro (21 de abril- 21 de mayo)"
+				}
+
+				else {
+					spanResult.innerHTML = "Aries (21 de marzo-20 de abril)"
+				}
+			}
+
+			else if (resultMes == "Mayo") {
+				if (resultDia >= 22) {
+					spanResult.innerHTML = "Géminis (22 de mayo-21 de junio)"
+				}
+
+				else {
+					spanResult.innerHTML = "Tauro (21 de abril- 21 de mayo)"
+				}
+			}
+
+			else if (resultMes == "Junio") {
+				if (resultDia >= 22) {
+					spanResult.innerHTML = "Cáncer (22 de junio-22 de julio)"
+				}
+
+				else {
+					spanResult.innerHTML = "Géminis (22 de mayo-21 de junio)"
+				}
+			}
+
+			else if (resultMes == "Julio") {
+				if (resultDia >= 23) {
+					spanResult.innerHTML = "Leo (23 de julio-23 de agosto)"
+				}
+
+				else {
+					spanResult.innerHTML = "Cáncer (22 de junio-22 de julio)"
+				}
+			}
+
+			else if (resultMes == "Agosto") {
+				if (resultDia >= 24) {
+					spanResult.innerHTML = "Virgo (24 de agosto-23 de septiembre)"
+				}
+
+				else {
+					spanResult.innerHTML = "Leo (23 de julio-23 de agosto)"
+				}
+			}
+
+			else if (resultMes == "Septiembre") {
+				if (resultDia >= 24) {
+					spanResult.innerHTML = "Libra (24 de septiembre-23 de octubre)"
+				}
+
+				else {
+					spanResult.innerHTML = "Virgo (24 de agosto-23 de septiembre)"
+				}
+			}
+
+			else if (resultMes == "Octubre") {
+				if (resultDia >= 24) {
+					spanResult.innerHTML = "Escorpión (24 de octubre-22 de noviembre)"
+				}
+
+				else {
+					spanResult.innerHTML = "Libra (24 de septiembre-23 de octubre)"
+				}
+			}
+
+			else if (resultMes == "Noviembre") {
+				if (resultDia >= 23) {
+					spanResult.innerHTML = "Sagitario (23 de noviembre-21 de diciembre)"
+				}
+
+				else {
+					spanResult.innerHTML = "Escorpión (24 de octubre-22 de noviembre)"
+				}
+			}
+
+			else if (resultMes == "Diciembre") {
+				if (resultDia >= 22) {
+					spanResult.innerHTML = "Capricornio (22 de diciembre-20 de enero)"
+				}
+
+				else {
+					spanResult.innerHTML = "Sagitario (23 de noviembre-21 de diciembre)"
+				}
+			}
+
+			else {
+				spanResult.innerHTML = ""
+			}
+
+		}
+
+	</script>
+</body>
+</html>

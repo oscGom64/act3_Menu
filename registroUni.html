@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Actividad 3 | Registro Universitario</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#">
+				<img class="logo" src="mainLogo.png" alt="logo">
+			</a>
+			<ul class="enlaces-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="seccionNum.html">Números</a></li>
+				<li><a href="seccionReg.html">Registros</a></li>
+				<li><a href="seccionCred.html">Créditos</a></li>
+			</ul>
+			<button class="ham" type="button">
+				<span class="br-1"></span>
+				<span class="br-2"></span>
+				<span class="br-3"></span>
+			</button>
+		</nav>
+	</header>
+	<div class="contenido">
+		<h1>Registro Universitario</h1>
+		<p>Ingrese los datos que se requieren.</p>
+		<form>
+			<p>Promedio de Bachillerato: </p><input id="numUno" type="text" name="uno">
+			<p>Puntuación del resultado EXANI: </p><input id="numDos" type="text" name="dos">
+			<p>Puntuación del examen de ingreso: </p><input id="numTres" type="text" name="dos">
+			<br><br>
+			<input id="botonConfirmar" type="button" name="confirm" value="Confirmar" onclick="obtenerResultado()">
+			<p><b></b> <span id="resultado"></span></p>
+			<p><b></b> <span id="info"></span></p>
+
+		</form>
+	</div>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		function obtenerResultado(){
+			var num1 = Number(document.getElementById("numUno").value);
+			var num2 = Number(document.getElementById("numDos").value);
+			var num3 = Number(document.getElementById("numTres").value);
+			let spanResult = document.getElementById("resultado");
+			let spanInfo = document.getElementById("info");
+
+			if (num1 >= 8.5 && num2 >= 1050 && num3 >= 800) {
+				spanResult.innerHTML = "¡Felicidades! Usted ha sido aceptado."
+				spanInfo.innerHTML = ""
+			}
+
+			else {
+				spanResult.innerHTML = "Usted ha sido rechazado."
+
+				if (num1 < 8.5) {
+					spanInfo.innerHTML = "Razón: Promedio de Bachillerato menor a 8.5"
+				}
+
+				else if (num2 < 1050) {
+					spanInfo.innerHTML = "Razón: Resultado de EXANI menor a 1050 puntos."
+				}
+
+				else{
+					spanInfo.innerHTML = "Razón: Resultado de examen de ingreso menor a 800 puntos."
+				}
+
+			}
+
+		}
+
+	</script>
+</body>
+</html>

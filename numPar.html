@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Actividad 3 | Número Par o Impar</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#">
+				<img class="logo" src="mainLogo.png" alt="logo">
+			</a>
+			<ul class="enlaces-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="seccionNum.html">Números</a></li>
+				<li><a href="seccionReg.html">Registros</a></li>
+				<li><a href="seccionCred.html">Créditos</a></li>
+			</ul>
+			<button class="ham" type="button">
+				<span class="br-1"></span>
+				<span class="br-2"></span>
+				<span class="br-3"></span>
+			</button>
+		</nav>
+	</header>
+	<div class="contenido">
+		<h1>Número Par o Impar</h1>
+		<p>Ingrese un número para determinar si se trata de un valor par o impar.</p>
+		<form>
+			<p>Número: </p><input id="num" type="text" name="numero">
+			<br><br>
+			<input id="botonConfirmar" type="button" name="confirm" value="Confirmar" onclick="obtenerResultado()">
+			<p><b><span id=resultado></span></b></p>
+		</form>
+	</div>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		function obtenerResultado(){
+			var num1 = Number(document.getElementById("num").value);
+			let span = document.getElementById("resultado");
+
+			if (/^\d+$/.test(num1)) {
+
+				if (num1 % 2 == 0) {
+					span.innerHTML = "El número es par.";
+				}
+
+				else {
+					span.innerHTML = "El número es impar.";
+				}
+			}
+
+			else {
+				span.innerHTML = "NO VÁLIDO: Se detectó un carácter no numérico."
+			}
+
+		}
+
+	</script>
+</body>
+</html>
